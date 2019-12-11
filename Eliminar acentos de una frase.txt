@@ -1,0 +1,18 @@
+|str voca voc|
+str:= UIManager default request: 'ingrese una cadena de caracteres'.
+str isNil ifTrue:[^nil].
+voca:= #($á $é $í $ó $ú $Á $É $Í $Ó $Ú).
+voc:= #($a $e $i $o $u $A $E $I $O $U).
+str collect:[:e| (voca includes: e) ifTrue:[ voc at: (voca findFirst:[:i| e = i] ) ]
+ifFalse:[e]
+
+
+|str voc vocacentuada pos|
+str:=UIManager default request:'ingrese una frase'.
+str ifNil:[^nil].
+voc:='aeiouAEIOU'.
+vocacentuada:='áéíóúÁÉÍÓÚ'.
+str:=str collect:[:e| pos:=vocacentuada findFirst:[:va|va=e]ifAbsent:[nil].
+pos isNil not ifTrue:[voc at:pos] ifFalse:[e] ].
+str:=str asLowerCase.
+^str

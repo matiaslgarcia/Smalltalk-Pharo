@@ -1,0 +1,17 @@
+|cad j pos cont bool|
+Transcript clear.
+cad:=(UIManager default request:'ingrese una frase')substrings .
+cont:=0.
+bool:=false.
+1 to: cad size do:[:i|
+						pos:= cad at:i.
+						j:=1.
+						(((pos at:j)isUppercase)&(j<(pos size)))ifTrue:[bool:=true.
+																						 j:=j+1].
+						(bool)ifTrue:[cont:=cont+1]
+						].
+
+Transcript show:'La frase ingresada por el usuario es: ',cad asString.
+Transcript cr.
+Transcript show:'La cantidad de palabras en mayusculas de la frase ingresada es: ',(cont asString).
+

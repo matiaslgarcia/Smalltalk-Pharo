@@ -1,0 +1,35 @@
+Clave MURCIELAGO: Esta clave tiene la diferencia de que cada letra que conforma la clave es reemplazada por un número. Mira el ejemplo:
+M	U	R	C	I	E	L	A	G	O
+0	1	2	3	4	5	6	7	8	9
+La palabra PARADIGMAS quedaría codificada  como: P727D4807S. 
+Realizar la codificación de una frase dada y viceversa (decodificación).
+	“Propuesta en Pharo”
+
+|str x|
+
+x := 'MURCIELAGO'.
+
+str := UIManager default request: 'Ingrese la cadena a codificar:'.
+(str isNil) ifFalse: [ 
+	1 to: (x size) do: [:i|
+			1 to: (str size) do: [:j|
+					((str at:j)asString = (x at:i)asString) ifTrue: [ 
+								str at:j put: ((i-1) asCharacterDigit).
+					].
+			].			
+].
+	Transcript show: str, String cr.
+].
+
+
+str := UIManager default request: 'Ingrese la cadena a decodificar:'.
+(str isNil) ifFalse: [ 
+	1 to: (x size) do: [:i|
+			1 to: (str size) do: [:j|
+					((str at:j)asString = (i-1)asString) ifTrue: [ 
+								str at:j put: (x at: i).
+					].
+			].			
+	].
+	Transcript show: str, String cr.
+].

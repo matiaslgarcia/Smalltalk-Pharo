@@ -1,0 +1,7 @@
+
+|cad|
+cad:=UIManager default request:'Ingrese texto:'.
+1 to: cad size do:[:i|
+	    (cad at:i) isLowercase ifTrue: [cad at:i put:((cad at:i)asUppercase)]
+	                            ifFalse:[cad at:i put:((cad at:i) asLowercase)]].
+cad.

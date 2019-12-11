@@ -1,0 +1,13 @@
+|n cont bool acum|
+Transcript clear.
+n:=(UIManager default request:'Ingrese un numero cualesquiera')asInteger .
+cont:=1.
+bool:=false.
+acum:=0.
+[ (cont <= (n-1)) ]whileTrue:[
+				((n \\ cont)=0)ifTrue:[acum:=acum+cont].
+				cont:=cont+1.													
+			 ].
+(n=acum)ifTrue: [bool :=true].
+(bool =true)ifTrue:[Transcript show:'El numero ',(n asString), ' es Perfecto']
+	      ifFalse:[Transcript show:'El numero ',(n asString), ' no es Perfecto'].

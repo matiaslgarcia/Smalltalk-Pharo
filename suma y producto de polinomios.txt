@@ -1,0 +1,72 @@
+|g1 g2 pol1 pol2 sum mult n cont|
+
+Transcript clear.
+
+"Cargamos los polinomios"
+
+g1:=(UIManager default request: 'Ingrese grado del polinomio 1:')asInteger.
+pol1:=Array new:(g1 +1).
+1 to: pol1 size do: [ :i|
+	 pol1 at:i put:((UIManager default request:'Ingrese numero:')asInteger)].
+
+g2:=(UIManager default request: 'Ingrese grado del polinomio 2:')asInteger.
+pol2:=Array new:(g2+1).
+1 to: pol2 size do: [ :i|
+	 pol2 at:i put:((UIManager default request:'Ingrese numero:')asInteger)].
+
+"Sumamos los polinomios"
+
+(g1 > g2) ifTrue:[ 																				"polinomio 1 es mayor al polinomio 2"
+	n:= g1-g2.
+	sum:= Array new:(pol1 size).
+	1 to: n do: [ :i|
+		 sum at: i put: (pol1 at:i)].
+	(n+1) to: pol1 size do: [:i| 
+		 sum at: i put:((pol1 at: i)+ (pol2 at:(i-n)))]]
+       ifFalse: [ (g1 < g2) ifTrue: [ 														"polinomio 2 es mayor al polinomio 1"
+		            n:= g2-g1.
+		            sum:= Array new: (pol2 size).
+		            1 to: n do: [ :i|
+		               sum at: i put: (pol2 at:i)].
+	               (n+1) to: pol2 size do: [:i| 
+		                 sum at: i put:((pol2 at: i)+ (pol1 at:(i-n)))]]
+            ifFalse: [ 																			"cuando los polinomios son del mismo grado"
+						sum:= Array new: (pol1 size).
+						1 to: pol1 size do: [:i| 
+		                 sum at: i put:((pol1 at: i)+ (pol2 at:i))]]].
+
+"Realizamos la multiplicacion"
+cont:=0.
+mult:= Array new: (g1+g2+1).
+1 to: mult size do: [ :i|
+			mult at:i put:0 ].
+										"PONER A CERO EL ARREGLO DE LA MULTIPLICACION"
+
+cont:=mult size.
+(((pol1 size)~=2) and:[(pol2 size)~=2])ifTrue:[ 																											"CUANDO EL GRADO DE LOS DOS POLINOMIOS ES MAYOR A 1"
+															(pol1 size) to: 1 by:-1 do: [ :i|												(pol2 size) to: 1 by: -1 do: [ :j|
+				mult at:cont put: ((mult at:cont)+((pol1at:i)*(pol2 at:j))).
+						(j>1) ifTrue: [cont:= cont -1]									  ifFalse: [cont:= cont +1]. ].]]ifFalse:[																										"EL GRADO DE ALGUNO DE LOS  DOS POLINOMIOS ES MAYOR A 1							(pol1 size) to: 1 by:-1 do: [ :i|
+ (pol2 size) to: 1 by: -1 do: [ :j|mult at:cont put: ((mult at:cont)+((pol1 at:i)*(pol2 at:j))).
+					 (j>1) ifTrue: [cont:= cont -1]]]].
+
+"MOSTRAR RESULTADO SUMA"
+
+Transcript show:'La SUMA de los Polinomios ingresados es: '.
+Transcript cr.			
+1 to: (sum size) do: [:i|	 
+(((sum at:i)>0))ifTrue:[Transcript show:((sum at:i)asString),'X^',(((sum size) -i) asString),' '].
+ (((sum at:i)<0))ifTrue:[Transcript show:((sum at:i)asString),'X^',(((sum size) -i) asString),' ']
+							].  
+"MOSTRAR RESULTADO MULTIPLICACION"
+Transcript cr.
+Transcript show:'La MULTIPLICACION de los Polinomios ingresados es: '.
+Transcript cr.
+1 to: (mult size) do:[:i|
+							(((mult at:i)>0))ifTrue:[Transcript show:((mult at:i)asString),'X^',(((mult size) -i) asString),' '].
+							(((mult at:i)<0))ifTrue:[Transcript show:((mult at:i)asString),'X^',(((mult size) -i) asString),' ']
+							].
+
+
+            ^arreglo.
+				

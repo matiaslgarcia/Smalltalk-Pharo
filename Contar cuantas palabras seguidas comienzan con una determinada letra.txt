@@ -1,0 +1,15 @@
+|cadena cont letra conpal ant |
+
+cadena:=(UIManager default request:'Ingrese una Frase: ')substrings.
+cadena isNil ifTrue:[^nil].
+cont:=0.conpal:=0.
+ant:=''.
+cadena do:[:pal|
+                  ant:=letra.
+					   letra:=pal at:1.
+                  (ant = letra) ifTrue:[cont:= cont + 1]
+                              	ifFalse:[cont:= 0].
+                  (cont = 2) ifTrue:[cont:= 0.
+												conpal:=conpal + 1].
+                      ].
+Transcript show:’La cantidad de palabras consecutivas son: ‘, conpal asString.

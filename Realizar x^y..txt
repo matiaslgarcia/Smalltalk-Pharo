@@ -1,0 +1,10 @@
+|x y pot|
+x:= (UIManager default request: 'Ingrese un numero entero X') asInteger.
+y:= (UIManager default request: 'Ingrese un numero entero Y') asInteger.
+pot:= 1.
+((x = 0) and: (y = 0)) ifTrue: [^ self error:'Esta potencia es una indeterminación'].
+
+1 to: y do: [ :i|
+	pot:= pot * x ].
+
+pot.

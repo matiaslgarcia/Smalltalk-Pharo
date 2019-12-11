@@ -1,0 +1,10 @@
+|cad cadsal pos|
+
+cad:=(UIManager default request:'ingrese una cadena')substrings.
+cadsal:=''.
+
+1 to: cad size do:[:i|
+	 		pos:= cad at:i.
+			pos at:1 put:((pos at:1) asUppercase).
+			cadsal:=cadsal,pos,' ' ].
+cadsal.

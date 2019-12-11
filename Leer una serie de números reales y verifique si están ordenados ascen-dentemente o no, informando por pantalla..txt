@@ -1,0 +1,16 @@
+|a n col pos ord|
+Transcript clear.
+n:=(UIManager default request: 'Ingrese la cantidad de numeros')asInteger .
+col:= Array new:n.
+1 to: n do:[:i| col at:i put:((UIManager default request:'ingrese valores: ')asNumber)].
+Transcript show:col.
+Transcript cr.
+pos:=1.
+ord:=true.
+[ (pos < (col size)) & (ord =true) ]whileTrue:[
+														((col at:pos) <= (col at:(pos+1)))ifFalse:[ord:=false].
+															pos:=pos+1  
+														].
+(ord = true)ifTrue:[Transcript show: 'La serie de numeros reales ingresada esta ORDENADA']
+			 ifFalse:[Transcript show: 'La serie de numeros reales ingresada NO esta ORDENADA'].
+

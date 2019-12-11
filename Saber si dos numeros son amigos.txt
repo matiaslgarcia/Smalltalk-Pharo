@@ -1,0 +1,12 @@
+|n1 n2 bool acum1 acum2|
+Transcript clear.
+n1:=(UIManager default request:'Ingrese un numero cualesquiera')asInteger .
+n2:=(UIManager default request:'Ingrese un numero cualesquiera')asInteger .
+bool:=false.
+
+acum1:=0. acum2:=0.
+1 to: (n1-1) do:[:i| ((n1 \\ i)=0)ifTrue:[acum1:=acum1+i]].
+1 to: (n2-1) do:[:i| ((n2 \\ i)=0)ifTrue:[acum2:=acum2+i]].
+						((n1=acum2)and:[n2=acum1])ifTrue: [bool :=true].
+(bool =true)ifTrue:[Transcript show:'El numero: ',(n1 asString), ' es AMIGO del numero: ',(n2 asString)]
+				ifFalse:[Transcript show:'El numero: ',(n1 asString), ' no es AMIGO del numero: ', (n2 asString)].

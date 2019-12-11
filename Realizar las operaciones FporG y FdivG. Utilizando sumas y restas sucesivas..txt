@@ -1,0 +1,25 @@
+|F G bool rest div mult|
+Transcript clear.
+F:=(UIManager default request:'ingrese un numero F cualquiera') asInteger .
+G:=(UIManager default request:'ingrese un numero G cualquiera') asInteger .
+mult:=0.
+div:=0.
+ (F<G )ifTrue:[1 to: F do:[:i|mult:=mult+G]]
+		ifFalse:[1 to: G do:[:i|mult:=mult+F]].
+
+Transcript show: mult.
+Transcript cr.
+
+(F<G)ifTrue: [^ Transcript show:'No se puede realizar la division de ',(F asString),' y ',(G asString), 'porque el numerador es menor al denominador']
+          ifFalse:[
+		bool:=false.
+		rest:=F.	
+		[bool= false]whileTrue: [ rest:= rest-G.
+					(rest<G)ifTrue:[bool:=true]
+						ifFalse:[div:=rest]
+					  ]
+									
+	        ].
+Transcript clear.
+Transcript show: div asInteger .
+Transcript cr.

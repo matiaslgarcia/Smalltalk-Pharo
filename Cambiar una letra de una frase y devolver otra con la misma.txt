@@ -1,0 +1,12 @@
+|string letra cambia|
+string:=UIManager default request:'Ingrese una frase:'.
+string isNil ifTrue:[^nil].
+letra:=UIManager default request:'Ingrese una letra a cambiar:'.
+letra isNil ifTrue:[^nil].
+letra:= letra at:1.
+cambia:=UIManager default request:'Ingrese una letra por la que cambia:'.
+cambia isNil ifTrue:[^nil].
+cambia:= cambia at:1.
+1 to: string size do:[:pos| ((string at:pos) = letra) ifTrue:[ string at:pos put: cambia].
+]. 
+string

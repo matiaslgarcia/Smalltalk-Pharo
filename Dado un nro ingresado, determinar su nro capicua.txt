@@ -1,0 +1,14 @@
+| num cont sum numrev sumrev |
+num:=(UIManager default request:'Ingrese un numero para analizarlo'.
+num isNil ifTrue:[^nil].
+cont:=1.
+numrev:=(num reversed) asInteger.
+num:=num asInteger.
+sum:=(num+numrev) asString.
+[sum=sum reversed] whileFalse:[sumrev:=(sum reversed) asInteger.
+                                                      sum:= sum asInteger.
+                                                      sum:=sum+sumrev.
+                                                      sum:=sum asString.
+                                                      cont:=cont+1].
+UIManager inform:'Numero obtenido: ',sum.
+UIManager inform:'Interacciones: ',cont asString.

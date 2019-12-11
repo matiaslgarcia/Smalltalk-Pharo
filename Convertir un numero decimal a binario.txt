@@ -1,0 +1,17 @@
+|n i resto bin|
+
+n:=(UIManager default request:'Ingrese un numero cualquiera')asInteger.
+(n<0)ifTrue:[self error:'El número no es positivo'].
+resto:=0.
+bin:=''.
+(n<2)ifTrue:[
+			bin:=bin,((n//2) asString).
+			bin:=bin,(n asString)]
+         ifFalse:[
+			[(n<2)]whileFalse:[
+				resto:=n\\2.
+				n:= n//2.
+				bin:=bin,(resto asString).].
+				bin:=bin,(n asString).
+				bin:=bin reversed].
+				bin.

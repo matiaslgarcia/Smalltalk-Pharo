@@ -1,0 +1,13 @@
+|n primo aux cont|
+Transcript clear.
+n:=(UIManager default request:'ingrese un numero')asInteger .
+
+aux:= (n sqrt)truncated.
+primo:=true.
+cont:= 2.
+[((primo=true)and:[cont<aux])]whileTrue:[
+								((n\\cont)=0)ifTrue:[primo:=false].
+cont:=cont+1.
+																		].
+ (primo=true)ifTrue:[(UIManager inform:'el numero ingresado es primo')]
+		ifFalse:[UIManager inform:'el numero ingresado no es primo'].

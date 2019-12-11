@@ -1,0 +1,35 @@
+|frase cont letra letraaux|
+Transcript clear.
+frase:=(UIManager default request:'Ingrese alguna frase: ')substrings.
+(frase isNil)ifTrue:[self error:'usted cancelo el proceso'].
+letra:=(UIManager default request:'Ingrese solo una letra:').
+letra:= letra at:1.
+cont:=0.
+frase do:[:i| 
+				letraaux:= i at:(i size).
+				(letra =letraaux)ifTrue:[cont:=cont+1]
+			].
+Transcript show:'La frase ingresada es: ',frase asString .		
+Transcript cr.						
+Transcript show:'La cantidad de palabras que terminan con la letra " ',letra asString, ' " es: ', cont asString.
+
+|texto cont pos palmax posmax|
+Transcript clear.
+texto:='Las elecciones presidenciales de Argentina de 2019 se llevarán a cabo el 27 de octubre de 2019, de acuerdo con lo establecido en la Constitución nacional y las leyes electorales. Los candidatos surgieron de las elecciones primarias (PASO) que se realizaron el 11 de agosto de 2019, al alcanzar el 1,5 % de los votos válidos. Además de elegir presidente y vicepresidente, los argentinos elegirán 130 diputados nacionales y 24 senadores nacionales. En varias provincias y en la Ciudad Autónoma de Buenos Aires también se eligen ese mismo día, autoridades ejecutivas y legislativas. El actual presidente Mauricio Macri está habilitado para postularse a un nuevo mandato de cuatro años según el artículo 90 de la Constitución Nacional. Como en elecciones anteriores, para que una fórmula se proclame ganadora, será suficiente con que recoja el 45 % de los votos afirmativos, o bien, el 40 %, y una diferencia de al menos 10 % con la que ocupe el segundo lugar. A falta de estos resultados, habrá una segunda vuelta entre las dos fórmulas con más votos.'.
+cont:=0.
+texto:=texto substrings.
+pos:=1.
+palmax:=''.
+texto do:[:i| 
+			((i size) between: 8 and: 16)ifTrue:[
+										((i occurrencesOf: $a)>3)ifTrue:[ cont:=cont+1]].
+	   		((i size)>=(palmax size))ifTrue:[
+						palmax:=i.
+						posmax:=pos].
+						pos:=pos+1].
+
+Transcript show:'La palabra mas larga es: ', palmax asString.
+Transcript cr.
+Transcript show:'La palabra mas larga se encuentra en la posicion: ',posmax asString.
+Transcript cr.
+Transcript show:'La cantidad de palabras que tienen mas de 3 vocales es: 'cont asString.

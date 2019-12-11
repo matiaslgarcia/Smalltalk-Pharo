@@ -1,0 +1,7 @@
+|cad|
+Transcript clear.
+cad:= UIManager default request: 'ingrese una frase'.
+
+Transcript show:'La frase ingresada es: ',( cad asUppercase).
+Transcript cr.
+Transcript show:'La frase ingresada es: ',( cad asLowercase).

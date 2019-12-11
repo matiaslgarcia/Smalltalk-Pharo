@@ -1,0 +1,16 @@
+|frase pos pos2 palind|
+frase:= (UIManager default request: 'Ingrese frase').
+ pos:=1.
+pos2:= frase size.
+palind:=true.
+[ (palind =true) and:[pos <= pos2]] whileTrue: [ 
+	                         (((frase at:pos)= $ ) and:[ pos ~= pos2]) ifTrue: [
+		                                                           pos:= pos+1  ].
+                             (((frase at:pos2)= $ ) and:[ pos ~= pos2]) ifTrue: [
+	                                                                pos2:= pos2-1  ].
+	                        ((frase at: pos) ~=(frase at: pos2)) ifTrue: [ 
+		                                               palind:=false ]. 
+	                                              pos:= pos+1. pos2:=pos2-1].
+Transcript show:’La frase ‘, frase .
+Transcript cr.
+Transcript show:’Es palíndromo? ’, palind asString.

@@ -1,0 +1,21 @@
+|cant lista n cm2 cm3 cm5 cm7|
+
+cm2:=0.cm3:=0.cm5:=0.cm7:=0.
+cant:=(UIManager default request:'ingrese cantidad de numeros que quiere listar')asInteger. 		
+lista:=Array new:cant.
+1 to: cant do:[:i| lista at:i put:((UIManager default request:'ingrese un numero cualquiera')asInteger)].
+
+1 to: cant do:[:i| (((lista at:i)\\2)=0)ifTrue:[cm2:=cm2+1].
+		  (((lista at:i)\\3)=0)ifTrue:[cm3:=cm3+1].
+		  (((lista at:i)\\5)=0)ifTrue:[cm5:=cm5+1].
+		  (((lista at:i)\\7)=0)ifTrue:[cm7:=cm7+1].					
+				  ].		
+Transcript show:lista.
+Transcript cr.							 
+Transcript show:'La cantidad de multiplos de 2, de los numeros ingresados es: ', (cm2 asString).
+Transcript cr.
+Transcript show:'La cantidad de multiplos de 3, de los numeros ingresados es: ', (cm3 asString).
+Transcript cr.
+Transcript show:'La cantidad de multiplos de 5, de los numeros ingresados es: ', (cm5 asString).
+Transcript cr.
+Transcript show:'La cantidad de multiplos de 7, de los numeros ingresados es: ', (cm7 asString).

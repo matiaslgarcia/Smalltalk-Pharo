@@ -1,0 +1,15 @@
+|a b c x1 x2|
+Transcript clear.
+a:=(UIManager default request:'ingrese coeficiente a')asInteger .
+b:=(UIManager default request:'ingrese coeficiente b')asInteger .
+c:=(UIManager default request:'ingrese coeficiente c')asInteger .
+
+((b=0)or:[((4*a*c)>(b squared))])ifTrue: [ ^self error:'Raices Complejas ' ].
+(a=0)ifTrue:[^self error:'Indeterminacion '].
+
+x1:= (((b negated)+(((b squared)-(4*a*c))sqrt))/(2*a)).
+x2:= (((b negated)-(((b squared)-(4*a*c))sqrt))/(2*a)).
+
+Transcript show: 'Raiz 1: ',x1 asString .
+Transcript cr.
+Transcript show: 'Raiz 2: ',x2 asString .

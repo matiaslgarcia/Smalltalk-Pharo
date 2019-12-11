@@ -1,0 +1,16 @@
+|cad1 cad2 cads pos cont cont2|
+
+cad1:= (UIManager default request: 'Ingrese una cadena')substrings.
+cad2:= (UIManager default request: 'Ingrese una cadena')substrings.
+cads:=Array new:((cad1 size)+(cad2 size)).
+
+pos:=1.cont:=1.cont2:=1.
+
+1 to: cads size do:[:i| 
+		 (cont<=cad1 size)ifTrue:[cads at:pos put:(cad1 at:cont).
+																cont:=cont+1.pos:=pos+1
+																].
+		 (cont2<=cad2 size)ifTrue:[cads at:pos put:(cad2 at:cont2).
+																cont2:=cont2+1. pos:=pos+1
+																]].
+Cads

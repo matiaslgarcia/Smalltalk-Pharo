@@ -1,0 +1,8 @@
+|frase cont|
+Transcript clear.
+cont:=0.
+frase:= (UIManager default request:'ingrese una frase cualquiera') .
+1 to: frase size do:[:i| (((frase at:i)isVowel))ifTrue:[cont:=cont+1]].
+Transcript show:'La frase ingresada es: ', frase .
+Transcript cr.
+Transcript show:('La cantidad de vocales de la frase ingresada es: ',(cont asString)),' vocales'.

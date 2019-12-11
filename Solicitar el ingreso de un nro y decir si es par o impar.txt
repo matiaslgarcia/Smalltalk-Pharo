@@ -1,0 +1,4 @@
+|n par |
+n:=(UIManager default request:'ingrese un numero')asInteger .											
+((n\\2)=0)ifTrue:[UIManager inform:'el numero ingresado es par']
+			ifFalse:[UIManager inform:'el numero ingresado no es par'].

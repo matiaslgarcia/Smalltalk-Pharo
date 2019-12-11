@@ -1,0 +1,31 @@
+|texto contA contE contI contO contU|
+Transcript clear.
+texto:= 'Clave MURCIELAGO. Esta clave tiene la diferencia de que cada letra que conforma la clave es reemplazada por un numero '.
+texto:= texto asLowercase .
+texto:=texto substrings.
+
+contA:=0. contE:=0. contI:=0.contO:=0. contU:=0.
+texto do:[:i|
+				contA:= contA+(i occurrencesOf: $a).
+				contE:= contE+(i occurrencesOf: $e).
+				contI:= contI+(i occurrencesOf: $i).
+				contO:= contO+(i occurrencesOf: $o).
+				contU:= contU+(i occurrencesOf: $u). 
+				
+				OTRA FORMA DE RESOLVERLO
+"((i includes:$a) |(i includes:$A)) ifTrue:[contA:=contA+1].
+				((i includes:$e) |(i includes:$E)) ifTrue:[contE:=contE+1].
+				((i includes:$i) |(i includes:$I)) ifTrue:[contI:=contI+1].
+				((i includes:$o) |(i includes:$O)) ifTrue:[contO:=contO+1].
+				((i includes:$u) |(i includes:$U)) ifTrue:[contU:=contU+1].
+				"
+].
+Transcript show: 'La cantidad de vocales "a" es: ',contA asString.
+Transcript cr.
+Transcript show: 'La cantidad de vocales "e" es: ',contE asString.
+Transcript cr.
+Transcript show: 'La cantidad de vocales "i" es: ',contI asString.
+Transcript cr.
+Transcript show: 'La cantidad de vocales "o" es: ',contO asString.
+Transcript cr.
+Transcript show: 'La cantidad de vocales "u" es: ',contU asString.

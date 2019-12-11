@@ -1,0 +1,13 @@
+|frase cont letra|
+Transcript clear.
+frase:=(UIManager default request:'Ingrese alguna frase: ')substrings.
+(frase isNil)ifTrue:[self error:'usted cancelo el proceso'].
+letra:=(UIManager default request:'Ingrese solo una letra:')asString.
+letra:= letra at:1.
+cont:=0.
+frase do:[:i| 
+				((i at:1)=letra)ifTrue:[cont:=cont+1]
+			].
+Transcript show:'La frase ingresada es: ',frase asString .		
+Transcript cr.						
+Transcript show:'La cantidad de palabras que comienzan con la letra ',letra asString, ' es: ', cont asString.

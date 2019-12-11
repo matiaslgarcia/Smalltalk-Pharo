@@ -1,0 +1,11 @@
+|a ing|
+
+a:=Array new.
+ing:=0.
+[ingr=99] whileFalse:[ing:= UIManager default request: 'Ingrese a Nro'.
+			(ing isNil)ifFalse:[ing:= ing abs.
+					    a includes: ing ifFalse:[a:=a,(Array with:ing)]
+							    ifTrue:[Transcript show:'repetido']]].
+^a.
+
+arreglo asArray.

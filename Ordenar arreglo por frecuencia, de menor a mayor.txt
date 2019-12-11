@@ -1,0 +1,37 @@
+|n num num2 nums fr f1 f2 aux1 aux2|
+Transcript clear.
+n:=(UIManager default request: 'Ingrese la cantidad de numeros')asInteger.
+num:=Array new:n.
+fr:= Array new.
+num2:=Array new.
+nums:= Array new.
+
+"Carga de arreglo original, de frecuencias y numeros sin repeticion"
+
+1 to: n do:[:i| 
+        num at: i put: ((UIManager default request: 'Ingrese numero ',i asString, ':')asInteger).
+        (num2 includes:(num at: i)) ifFalse: [ num2:= num2, (Array with: (num at:i))] ].
+1 to: num2 size do: [ :i|
+     fr:=fr, (Array with: (num occurrencesOf: (num2 at:i)))].    
+
+"Ordenamiento de arreglos de mayor frecuencia y en caso de igualdad de menor a mayor"    
+
+1 to: (fr size -1) do: [:i|
+    2 to: fr size do: [ :j|
+        ((fr at: j) > (fr at: (j-1))) ifTrue: [ 
+                     f1:= (fr at: j). f2:= (fr at: (j-1)).
+                      fr at: j put: f2. fr at: (j-1) put: f1.
+                       aux1:= (num2 at: j). aux2:= (num2 at: (j-1)).
+                       num2 at: j put: aux2. num2 at: (j-1) put: aux1].
+                     ((fr at:j) = (fr at: (j-1))) ifTrue: [ 
+                       ((num2 at: j)< (num2 at: (j-1))) ifTrue: [ 
+                                     aux1:= num2 at: j. aux2:= num2 at:(j-1).
+                                     num2 at:j put: aux2. num2 at: (j-1) put: aux1
+                                        ]]]].
+
+"Carga del arreglo de salida"
+
+1 to: num2 size do: [ :i|
+    1 to: (fr at:i) do: [:j|
+         nums:= nums,(Array with:(num2 at:i))]].
+nums.

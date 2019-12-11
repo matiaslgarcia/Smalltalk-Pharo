@@ -1,0 +1,12 @@
+ |buscando arreglo max min medio bloque |
+  bloque:=[:com :fin|arreglo at: ((com + fin)// 2)].
+  arreglo:=#(1 2 3 4 5 6 7 8 9).
+  max:= arreglo size - 1. min:=0.
+  buscando:=UIManager default request:'Ingrese el valor a buscar:')asInteger.
+
+  [min <= max] whileTrue:[ medio:=bloque value: min value:max.
+  medio = buscando ifTrue:[^true].
+                          buscando < medio ifTrue:[max:= medio - 1.]
+  ifFalse:[min:= medio + 1].
+
+].^false.

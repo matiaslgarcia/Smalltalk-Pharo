@@ -1,0 +1,29 @@
+arch archsal linea salida aux1 aux2 aux3 aux4 aux5 aux6 aux7 aux8 aux9 aux10 aux11 aux12 aux13 aux14 aux15
+Transcript clear.
+arch= FileStream fileNamed 'C:\\Users\PC\Desktop\arch.txt'.
+archsal= FileStream fileNamed'C:\\Users\PC\Desktop\archivosal.txt'.
+
+archsal nextPutAll'Cuit Agente Retencion  Numero de sucursal donde se realizo la Retencion Numero de comprobante de retencion Cuit contribuyente Razon social contribuyente Domicilio contribuyente Fecha Retencion Monto retencion Codigo Concepto Monto imposible Alicuota aplicada Codigo producto Numero dependencia Orden de pago Numero de orden de pago'.
+Transcript show'Cuit Agente Retencion  Numero de sucursal donde se realizo la Retencion Numero de comprobante de retencion Cuit contribuyente Razon social contribuyente Domicilio contribuyente Fecha Retencion Monto retencion Codigo Concepto Monto imposible Alicuota aplicada Codigo producto Numero dependencia Orden de pago Numero de orden de pago';cr.
+[ arch atEnd ]whileFalse[
+    linea= arch nextLine. 
+    aux1=linea copyFrom1 to11.
+	 aux2=linea copyFrom12 to13.
+	 aux3= linea copyFrom14 to19.
+	 aux4= linea copyFrom20 to30.
+	 aux5= linea copyFrom31 to60.
+	 aux6= linea copyFrom61 to87.
+	 aux7= linea copyFrom110 to118.
+	 aux8= linea copyFrom119 to129.
+	 aux9= linea copyFrom130 to131.
+	 aux10= linea copyFrom132 to142.
+	 aux11= linea copyFrom143 to153.
+	 aux12= linea copyFrom154 to156.
+	 aux13= linea copyFrom157 to158.
+	 aux14= linea copyFrom159 to160.
+	 aux15= linea copyFrom161 to165.
+
+	salida= aux1,'  ',aux2,'  ',aux3,'  ',aux4,'  ',aux5,'  ',aux6,'  ',aux7,'  ',aux8,'  ',aux9,'  ',aux10,'  ',aux11,'  ',aux12,'  ',aux13,'  ',aux14,'  ',aux15,' '.
+	 Transcript showsalida;cr.
+    archsal nextPutAll salida;cr.
+].

@@ -1,0 +1,8 @@
+|texto letra veces|
+Transcript clear.
+texto:= 'Clave MURCIELAGO. Esta clave tiene la diferencia de que cada letra que conforma la clave es reemplazada por un numero '.
+letra:= UIManager default request:'Ingrese una letra: '.
+(letra isNil)ifTrue:[^nil].
+letra:= letra at:1.
+texto:=texto asLowercase .
+veces:= (texto occurrencesOf: letra).

@@ -1,0 +1,6 @@
+|n cant par multiplos |
+
+n:=(UIManager default request:'ingrese un numero para saber sus multiplos')asInteger. cant:=(UIManager default request:'ingrese la cantidad de multiplos que desea')asInteger .												
+multiplos:=Array new:cant.
+1 to: cant do:[:i| multiplos at:i put:(n*i)].
+^multiplos.
